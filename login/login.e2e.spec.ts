@@ -1,10 +1,11 @@
-import { browser, ExpectedConditions, ProtractorExpectedCondtiitons } from protractor;
+import 'jasmine';
+import { browser, ExpectedConditions, ProtractorExpectedConditions } from 'protractor';
 
 import { LoginPage } from './login.page.po';
 
 
 describe('Login Page', () => {
-    let protractorExpectedCondition: ProtractorExpectedCondtiitons;
+    let protractorExpectedCondition: ProtractorExpectedConditions;
     const page = new LoginPage();
 
     protractorExpectedCondition = ExpectedConditions;
