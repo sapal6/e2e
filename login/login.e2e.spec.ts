@@ -22,15 +22,14 @@ describe('Login Page', () => {
     }];
 
     parameters.forEach(async parameter => {
-        it(parameter.description, () =>{
+        it(parameter.description, async () =>{
             page.getUserNameField().sendKeys(parameter.invalidUserName);
             page.getPasswordField().sendKeys(parameter.invalidUserName);
             page.getSignInButton().click();
 
+            const errorMessage = await page.getErrorMessage().getText();
             browser.wait(protractorExpectedCondition.visibilityOf(page.getErrorMessage()), 5000);
-            expect(page.getErrorMessage().getText()).toEqual(parameter.errorMessage);
+            expect(errorMessage).toEqual(parameter.errorMessage);
         })
     })
-
-
 })

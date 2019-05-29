@@ -1,4 +1,4 @@
-import { browser, $, Element } from protractor
+import { browser, $, element } from 'protractor';
 import { By } from "selenium-webdriver";
 
 export class LoginPage{
@@ -20,7 +20,7 @@ export class LoginPage{
     }
 
     getErrorMessage(){
-        return element(By.xpath('//*[@id="login_form"]/ng-form/div[3]/div[1]/div/div/span')).getText() ;
+        return element(By.xpath('//*[@id="login_form"]/ng-form/div[3]/div[1]/div/div/span'));
     }
 
 }

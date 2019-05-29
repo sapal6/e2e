@@ -8,7 +8,7 @@ exports.config = {
     },
     framework: 'jasmine',
     // Spec patterns are relative to the current working directory when protractor is called.
-    specs: ['e2e/*spec.js'],
+    specs: ['./../login.e2e.spec.ts'],
 
     jasmineNodeOpts: {
         defaultTimeoutInterval: 100000
