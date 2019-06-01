@@ -1,6 +1,7 @@
-exports.config = {
 
-    directConnect: true,
+let SpecReporter = require('jasmine-spec-reporter').SpecReporter;
+
+exports.config = {
 
     // Optipons for the webdriver instance.
     capabilities: {
@@ -8,11 +9,28 @@ exports.config = {
     },
     framework: 'jasmine',
     // Spec patterns are relative to the current working directory when protractor is called.
-    specs: ['./../login.e2e.spec.ts'],
+    specs: ['login/*.e2e.spec.js', 'login/*.page.po.js'],
 
     jasmineNodeOpts: {
         defaultTimeoutInterval: 100000
     },
+    
+  onPrepare: function(){
 
-    baseUrl: "https://uat.ormuco.com/login" 
+    jasmine.getEnv().addReporter(new SpecReporter({
+
+      displayFailuresSummary: true,
+
+      displayFailuredSpec: true,
+
+      displaySuiteNumber: true,
+
+      displaySpecDuration: true
+
+    }));
+
+  },
+
+    baseUrl: "https://uat.ormuco.com/login" ,
 };
+

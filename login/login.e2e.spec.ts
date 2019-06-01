@@ -1,8 +1,6 @@
-import 'jasmine';
-import { browser, ExpectedConditions, ProtractorExpectedConditions } from 'protractor';
+import { browser, ExpectedConditions, ProtractorExpectedConditions } from "protractor";
 
-import { LoginPage } from './login.page.po';
-
+import { LoginPage } from "./login.page.po";
 
 describe('Login Page', () => {
     let protractorExpectedCondition: ProtractorExpectedConditions;
@@ -22,13 +20,14 @@ describe('Login Page', () => {
     }];
 
     parameters.forEach(async parameter => {
-        it(parameter.description, async () =>{
+        it(parameter.description, async function() {
+            
             page.getUserNameField().sendKeys(parameter.invalidUserName);
             page.getPasswordField().sendKeys(parameter.invalidUserName);
             page.getSignInButton().click();
 
             const errorMessage = await page.getErrorMessage().getText();
-            browser.wait(protractorExpectedCondition.visibilityOf(page.getErrorMessage()), 5000);
+            browser.wait(protractorExpectedCondition.visibilityOf(page.getErrorMessage()), 8000);
             expect(errorMessage).toEqual(parameter.errorMessage);
         })
     })

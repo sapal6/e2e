@@ -1,4 +1,4 @@
-import { browser, $, element } from 'protractor';
+import { browser, element } from 'protractor';
 import { By } from "selenium-webdriver";
 
 export class LoginPage{

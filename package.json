@@ -1,0 +1,37 @@
+{
+  "name": "e2e",
+  "version": "1.0.0",
+  "description": "",
+  "main": "protractor.conf.js",
+  "dependencies": {
+    "jasmine": "^3.4.0",
+    "protractor": "^5.4.2",
+    "typescript": "^3.5.1",
+    "webdriver-manager": "^12.1.4"
+  },
+  "devDependencies": {
+    "@types/jasmine": "^3.3.13",
+    "@types/jasminewd2": "~2.0.3",
+    "@types/node": "^12.0.4",
+    "jasmine-spec-reporter": "^4.2.1",
+    "ts-node": "~5.0.1",
+    "tsconfig-paths": "^3.6.0",
+    "typescript": "~3.1.3"
+  },
+  "scripts": {
+    "pretest": "npm run tsc && npm run webdriver-update",
+    "webdriver-update": "webdriver-manager update --standalone=false --gecko=false",
+    "e2e": "npm run pretest && protractor protractor.conf.js",
+    "tsc": "tsc -p ./login"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sapal6/e2e.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sapal6/e2e/issues"
+  },
+  "homepage": "https://github.com/sapal6/e2e#readme"
+}
